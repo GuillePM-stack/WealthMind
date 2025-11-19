@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
 
 class DefaultTextFieldOutlined extends StatelessWidget {
+  final Function(String text) onChanged;
   final String text;
   final IconData icon;
   final EdgeInsetsGeometry margin;
+  final String? Function(String?)? validator;
 
   const DefaultTextFieldOutlined({
     super.key,
     required this.text,
     required this.icon,
     this.margin = const EdgeInsets.only(top: 50, left: 20, right: 20),
+    required this.onChanged,
+    this.validator,
   });
 
   @override
@@ -25,9 +29,12 @@ class DefaultTextFieldOutlined extends StatelessWidget {
         ),
       ),
       child: TextFormField(
+        onChanged: (text) {
+          onChanged(text);
+        },
+        validator: validator,
         decoration: InputDecoration(
           label: Text(text),
-          // border: InputBorder.none,
           focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(
               color: Color.fromARGB(255, 35, 161, 183),

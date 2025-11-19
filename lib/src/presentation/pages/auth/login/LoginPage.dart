@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wealthmind/src/presentation/pages/auth/login/LoginContent.dart';
+import 'package:wealthmind/src/presentation/pages/auth/login/bloc/LoginBloc.dart';
+import 'package:wealthmind/src/presentation/pages/auth/login/bloc/LoginSate.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -14,12 +17,15 @@ class _LoginPageState extends State<LoginPage> {
   Hot restart
   Full restart
   */
-
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       // backgroundColor: Colors.blueGrey,
-      body: LoginContent(),
+      body: BlocBuilder<LoginBloc, LoginState>(
+        builder: (context, state) {
+          return LoginContent(state);
+        },
+      ),
     );
   }
 }

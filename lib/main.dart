@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:wealthmind/src/blocProviders.dart';
 import 'package:device_preview/device_preview.dart';
+import 'package:wealthmind/src/presentation/pages/chat/ChatScreen.dart';
 import 'package:wealthmind/src/presentation/pages/auth/login/LoginPage.dart';
 import 'package:wealthmind/src/presentation/pages/auth/register/RegisterPage.dart';
 
@@ -19,17 +22,21 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'WealthMind',
-      builder: DevicePreview.appBuilder,
-      locale: DevicePreview.locale(context),
-      debugShowCheckedModeBanner: false,
+    return MultiBlocProvider(
+      providers: blocProviders,
+      child: MaterialApp(
+        title: 'WealthMind',
+        builder: DevicePreview.appBuilder,
+        locale: DevicePreview.locale(context),
+        debugShowCheckedModeBanner: false,
 
-      initialRoute: 'Login',
-      routes: {
-        'Login': (BuildContext context) => LoginPage(),
-        'Register': (BuildContext context) => RegisterPage(),
-      },
+        initialRoute: 'Chat',
+        routes: {
+          'Login': (BuildContext context) => const LoginPage(),
+          'Register': (BuildContext context) => const RegisterPage(),
+          'Chat': (BuildContext context) => const ChatScreen(),
+        },
+      ),
     );
   }
 }
