@@ -14,8 +14,6 @@ class Message {
 
 class GeminiService {
   static const String _apiKey = "AIzaSyA8J3ua8aa_WYvC1P64NaxvkPbgEFeKPUQ";
-
-  // ✅ MODELO CORRECTO: gemini-2.0-flash (disponible según tu lista)
   static const String _model = "gemini-2.0-flash";
   static const String _baseUrl =
       "https://generativelanguage.googleapis.com/v1beta/models/$_model:generateContent";
@@ -53,26 +51,95 @@ class GeminiService {
             "parts": [
               {
                 "text":
-                    "Eres WealthMind, un asesor financiero personal especializado en finanzas personales. Tu rol es:\n\n"
-                    "• Brindar consejos prácticos sobre ahorro, inversión y presupuestos\n"
-                    "• Ayudar con eliminación de deudas y educación financiera\n"
-                    "• Ser claro, motivador y conciso en tus respuestas\n"
-                    "• Mantener un tono profesional pero amigable\n"
-                    "• Mantente solo en el ámbito financiero y no salgas de él\n\n"
-                    "• Recuerda que tu debes de guiar al usuario hacia buenas prácticas financieras, no lo arrojes a riesgos innecesarios ya que puede no tener el conocimiento completo de como hacerlo.\n"
-                    "• Responder siempre en español\n"
-                    "• Evitar recomendaciones de inversión específicas o consejos legales\n\n"
-                    "Ejemplo de respuestas efectivas:\n"
-                    "- 'Para ahorrar más, te sugiero el método 50-30-20...'\n"
-                    "- 'Para reducir deudas, prioriza las de mayor interés...'\n"
-                    "- 'Un buen presupuesto incluye categorías como...'",
+                    "Eres WealthMind, un asistente financiero especializado en educación financiera personal. Tu propósito es empoderar a los usuarios mediante conocimientos prácticos y estrategias probadas.\n\n"
+                    "**INFORMACIÓN DEL USUARIO ACTUAL:**\n"
+                    "• **Nombre:** Carlos Mendoza\n"
+                    "• **Edad:** 30 años\n"
+                    "• **Ubicación:** Sinaloa, México\n"
+                    "• **Situación familiar:** Soltero, sin hijos\n"
+                    "• **Ocupación:** Empleado administrativo\n\n"
+                    "**SITUACIÓN FINANCIERA ACTUAL:**\n"
+                    "**Ingresos:**\n"
+                    "• Salario quincenal: \$5,000 MXN\n"
+                    "• Ingreso mensual total: \$10,000 MXN\n"
+                    "• Frecuencia de pago: Quincenal (días 15 y 30)\n\n"
+                    "**Gastos Fijos Mensuales:**\n"
+                    "• Renta: \$3,500 MXN\n"
+                    "• Servicios básicos (luz, agua, gas, internet): \$800 MXN\n"
+                    "• Alimentación y despensa: \$2,000 MXN\n"
+                    "• Transporte: \$600 MXN\n"
+                    "• Pago de deuda: \$400 MXN\n"
+                    "• Gastos varios: \$700 MXN\n\n"
+                    "**Deudas:**\n"
+                    "• Adeudo total: \$10,000 MXN\n"
+                    "• Pago mensual: \$400 MXN\n"
+                    "• Tasa de interés: Aprox. 3% mensual\n"
+                    "• Tiempo restante: 25 meses\n\n"
+                    "**Ahorros e Inversiones:**\n"
+                    "• Ahorro actual: \$0 MXN\n"
+                    "• Fondo de emergencia: No existe\n"
+                    "• Afore: Contribuciones básicas\n"
+                    "• Seguros: Solo IMSS\n\n"
+                    "**Metas Financieras (Declaradas):**\n"
+                    "• Corto plazo: Liquidar deuda de \$10,000 MXN\n"
+                    "• Mediano plazo: Crear fondo de emergencia\n"
+                    "• Largo plazo: Ahorrar para enganche de vivienda\n\n"
+                    "**PRINCIPIOS FUNDAMENTALES PARA ASESORAR A CARLOS:**\n"
+                    "• Basa tus respuestas en principios financieros sólidos y mejores prácticas reconocidas\n"
+                    "• Mantén un equilibrio entre realismo financiero y motivación positiva\n"
+                    "• Adapta tu lenguaje a su nivel de conocimiento (principiante en finanzas)\n"
+                    "• Prioriza la seguridad financiera sobre rendimientos especulativos\n"
+                    "• Fomenta la educación continua y la planificación a largo plazo\n\n"
+                    "**ÁREAS DE ENFOQUE PRIORITARIAS PARA CARLOS:**\n"
+                    "1. **Optimización de presupuesto** con ingresos limitados\n"
+                    "2. **Estrategia acelerada de pago de deudas**\n"
+                    "3. **Creación de fondo de emergencia** desde cero\n"
+                    "4. **Planificación para metas de vivienda** a largo plazo\n"
+                    "5. **Protección financiera básica** (seguros, Afore)\n\n"
+                    "**RECOMENDACIONES ESPECÍFICAS PARA SU CONTEXTO:**\n"
+                    "• Considera su ubicación en Sinaloa (costo de vida medio)\n"
+                    "• Toma en cuenta ingresos quincenales para calendarización\n"
+                    "• Propón estrategias realistas con sus \$10,000 mensuales\n"
+                    "• Enfócate en reducir gastos fijos altos (renta del 35% de ingresos)\n"
+                    "• Sugiere métodos de ahorro automático acordes a pagos quincenales\n\n"
+                    "**DIRECTIVAS DE COMUNICACIÓN:**\n"
+                    "• Utiliza un tono empático pero profesional\n"
+                    "• Estructura tus respuestas en conceptos claros y accionables\n"
+                    "• Proporciona ejemplos concretos adaptados a sus números\n"
+                    "• Destaca los beneficios a largo plazo de las decisiones financieras\n"
+                    "• Reconoce las limitaciones y sugiere consultar profesionales cuando sea apropiado\n\n"
+                    "**LÍMITES PROFESIONALES:**\n"
+                    "• Abstente de recomendar productos financieros específicos\n"
+                    "• No proporciones asesoramiento legal o fiscal\n"
+                    "• Evita predicciones sobre mercados financieros\n"
+                    "• No sugieras estrategias de alto riesgo\n"
+                    "• Mantén la confidencialidad y ética en todas las interacciones\n\n"
+                    "**EJEMPLOS DE RESPUESTAS CONTEXTUALIZADAS:**\n"
+                    "• 'Considerando tus ingresos de \$10,000 mensuales, te sugiero destinar el 20% (\$2,000) al pago acelerado de tu deuda...'\n"
+                    "• 'Para crear tu fondo de emergencia, podrías ahorrar \$500 por quincena automáticamente...'\n"
+                    "• 'Tu gasto en renta representa el 35% de tus ingresos. ¿Has considerado opciones de roommates o ubicaciones más económicas?'\n"
+                    "• 'Con tu deuda actual de \$10,000 al 3% mensual, estás pagando \$300 solo en intereses cada mes...'\n\n"
+                    "**FORMATO DE RESPUESTAS:**\n"
+                    "• NO uses markdown, asteriscos (*), ni ningún formato especial\n"
+                    "• NO uses negritas, cursivas, ni subrayados\n"
+                    "• Escribe en texto plano únicamente\n"
+                    "• Usa guiones (-) para listas en lugar de asteriscos\n"
+                    "• Separa párrafos con saltos de línea\n"
+                    "• Mantén un lenguaje natural y conversacional\n\n"
+                    "**EJEMPLOS DE FORMATO CORRECTO:**\n"
+                    "INCORRECTO: **Para ahorrar** puedes *seguir* estos pasos:\n"
+                    "CORRECTO: Para ahorrar puedes seguir estos pasos:\n\n"
+                    "INCORRECTO: * Paso 1: Crear presupuesto\n"
+                    "CORRECTO: - Paso 1: Crear presupuesto\n\n"
+                    "**COMPROMISO DE CALIDAD:**\n"
+                    "Toda recomendación debe ser educativa, práctica, realista para sus ingresos y alineada con el bienestar financiero de Carlos a largo plazo."
+                    "Ademas que las preguntas y respuestas que vayas a dar sean breves, pero certeras y directas ya que de no ser así pordría ser frustrante y aburrido para el usuario.",
               },
             ],
           },
         }),
       );
 
-      // ✅ MANEJO DE RESPUESTAS CON SWITCH
       switch (response.statusCode) {
         case 200:
           final data = jsonDecode(response.body);
@@ -83,7 +150,6 @@ class GeminiService {
               final parts = content["parts"];
               if (parts != null && parts.isNotEmpty) {
                 final responseText = parts[0]["text"];
-                print("✅ Respuesta exitosa de Gemini!");
                 return responseText;
               }
             }
@@ -130,6 +196,7 @@ class _ChatScreenState extends State<ChatScreen> {
   final TextEditingController _textController = TextEditingController();
   final ScrollController _scrollController = ScrollController();
   bool _isLoading = false;
+  final FocusNode _textFieldFocusNode = FocusNode();
 
   @override
   void initState() {
@@ -202,15 +269,8 @@ class _ChatScreenState extends State<ChatScreen> {
               margin: const EdgeInsets.only(right: 8),
               child: CircleAvatar(
                 backgroundColor: Colors.blueAccent,
-                radius: 16,
-                child: Text(
-                  "WM",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 10,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
+                radius: 20,
+                child: _buildWealthMindAvatar(),
               ),
             ),
           Flexible(
@@ -245,11 +305,109 @@ class _ChatScreenState extends State<ChatScreen> {
               margin: const EdgeInsets.only(left: 8),
               child: CircleAvatar(
                 backgroundColor: Colors.greenAccent,
-                radius: 16,
-                child: Icon(Icons.person, color: Colors.white, size: 18),
+                radius: 20,
+                child: Icon(Icons.person, color: Colors.white, size: 20),
               ),
             ),
         ],
+      ),
+    );
+  }
+
+  Widget _buildWealthMindAvatar() {
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(20),
+      child: Container(
+        width: 40,
+        height: 40,
+        decoration: BoxDecoration(
+          color: Colors.blueAccent,
+          borderRadius: BorderRadius.circular(20),
+        ),
+        child: Stack(
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: [Colors.blue.shade700, Colors.blueAccent],
+                ),
+                borderRadius: BorderRadius.circular(20),
+              ),
+            ),
+            Center(
+              child: Image.asset(
+                'assets/img/chatbot.png',
+                width: 22,
+                height: 22,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  // ALTERNATIVA: Si quieres usar una imagen de internet
+  Widget _buildWealthMindAvatarFromNetwork() {
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(20),
+      child: Container(
+        width: 40,
+        height: 40,
+        child: Image.network(
+          'https://ejemplo.com/tu-imagen-wealthmind.png',
+          fit: BoxFit.cover,
+          errorBuilder: (context, error, stackTrace) {
+            return Container(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: [Colors.blue.shade700, Colors.blueAccent],
+                ),
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: Center(
+                child: Icon(Icons.attach_money, color: Colors.white, size: 20),
+              ),
+            );
+          },
+        ),
+      ),
+    );
+  }
+
+  Widget _buildWealthMindAvatarFromAssets() {
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(20),
+      child: Container(
+        width: 40,
+        height: 40,
+        child: Image.asset(
+          '/assets/img/chatbot.png',
+          fit: BoxFit.cover,
+          errorBuilder: (context, error, stackTrace) {
+            return Container(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: [Colors.blue.shade700, Colors.blueAccent],
+                ),
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: Center(
+                child: Icon(
+                  Icons.currency_exchange,
+                  color: Colors.white,
+                  size: 20,
+                ),
+              ),
+            );
+          },
+        ),
       ),
     );
   }
@@ -271,20 +429,32 @@ class _ChatScreenState extends State<ChatScreen> {
         ],
       ),
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.end,
         children: [
-          Flexible(
-            child: TextField(
-              controller: _textController,
-              onSubmitted: (_) => _sendMessage(),
-              decoration: const InputDecoration.collapsed(
-                hintText: "Escribe tu pregunta financiera...",
+          Expanded(
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(minHeight: 40, maxHeight: 120),
+              child: TextField(
+                controller: _textController,
+                focusNode: _textFieldFocusNode,
+                onSubmitted: (_) => _sendMessage(),
+                maxLines: null,
+                textInputAction: TextInputAction.newline,
+                decoration: const InputDecoration(
+                  border: InputBorder.none,
+                  hintText: "Escribe tu pregunta financiera...",
+                  hintStyle: TextStyle(color: Colors.grey),
+                  contentPadding: EdgeInsets.symmetric(vertical: 12),
+                ),
+                style: const TextStyle(fontSize: 16),
+                enabled: !_isLoading,
               ),
-              enabled: !_isLoading,
             ),
           ),
+          const SizedBox(width: 8),
           _isLoading
               ? const Padding(
-                padding: EdgeInsets.all(8),
+                padding: EdgeInsets.only(bottom: 8),
                 child: SizedBox(
                   width: 24,
                   height: 24,
@@ -292,8 +462,13 @@ class _ChatScreenState extends State<ChatScreen> {
                 ),
               )
               : IconButton(
-                icon: const Icon(Icons.send, color: Colors.blueAccent),
+                icon: const Icon(
+                  Icons.send,
+                  color: Colors.blueAccent,
+                  size: 24,
+                ),
                 onPressed: _sendMessage,
+                padding: const EdgeInsets.only(bottom: 4),
               ),
         ],
       ),
@@ -308,13 +483,13 @@ class _ChatScreenState extends State<ChatScreen> {
           "WealthMind - Asesor Financiero",
           style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
         ),
-        backgroundColor: Colors.blueAccent,
+        backgroundColor: const Color.fromRGBO(25, 114, 147, 1),
         centerTitle: true,
         elevation: 4,
       ),
       body: Column(
         children: [
-          Flexible(
+          Expanded(
             child: ListView.builder(
               controller: _scrollController,
               reverse: true,
@@ -334,6 +509,7 @@ class _ChatScreenState extends State<ChatScreen> {
   void dispose() {
     _textController.dispose();
     _scrollController.dispose();
+    _textFieldFocusNode.dispose();
     super.dispose();
   }
 }
