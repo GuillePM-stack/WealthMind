@@ -15,7 +15,6 @@ class Message {
 class GeminiService {
   static const String _apiKey = "AIzaSyA8J3ua8aa_WYvC1P64NaxvkPbgEFeKPUQ";
 
-  // ✅ MODELO CORRECTO: gemini-2.0-flash (disponible según tu lista)
   static const String _model = "gemini-2.0-flash";
   static const String _baseUrl =
       "https://generativelanguage.googleapis.com/v1beta/models/$_model:generateContent";
@@ -72,7 +71,6 @@ class GeminiService {
         }),
       );
 
-      // ✅ MANEJO DE RESPUESTAS CON SWITCH
       switch (response.statusCode) {
         case 200:
           final data = jsonDecode(response.body);
